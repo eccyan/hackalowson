@@ -1,5 +1,6 @@
 Hackalowson::Application.routes.draw do
   namespace :api do
+    get 'stocks/search' => 'stocks#search', as: :search_stocks
     resources :stocks
 
     resources :stores do

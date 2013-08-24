@@ -8,6 +8,7 @@
       <th>Odenid</th>
       <th>Number</th>
       <th>Available</th>
+      <th>SimiType</th>
       <th>Entrytime</th>
       <th>Recordedtime</th>
       <th></th>
@@ -24,16 +25,12 @@
         <td><%= stock.odenId %></td>
         <td><%= stock.number %></td>
         <td><%= stock.available %></td>
+        <td><%= stock.simiType%></td>
         <td><%= stock.entryTime %></td>
         <td><%= stock.recordedTime %></td>
-        <td><%= link_to 'Show', stock %></td>
-        <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
-        <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Stock', new_stock_path %>

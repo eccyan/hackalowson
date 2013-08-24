@@ -4,7 +4,7 @@ class Api::StocksController < ApplicationController
   # GET /stocks
   # GET /stocks.json
   def index
-    if store_id = params[:store_id] 
+    if store_id = params[:store_id]
       @stocks = Stock.where storeId: store_id
     else
       @stocks = Stock.all
@@ -64,6 +64,29 @@ class Api::StocksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to stocks_url }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /stocks/search
+  # GET /stocks/search.json
+  def search
+    if store_id = params[:store_id] 
+      @stocks = Stock.where storeId: store_id
+    else
+      @stocks = Stock.all
+    end
+
+    oden_id = params[:oden_id]
+    @stocks = @stocks.where odenId: oden_id if oden_id
+
+    simi_type = params[:simi_type]
+    start_datetime = Time.now
+    interval_time = @stocks.interval_time(simi_type)
+
+    if interval_time
+      @stocks = @stocks.where(entryTime: start_datetime..(start_datetime-interval_time))
+    else
+      @stocks = @stocks.where "entryTime < ?", start_datetime
     end
   end
 
