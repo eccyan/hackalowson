@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 
+  storeId: 
+  odenId: 
+  number: 
+  available: 
+  entryTime: 2013-08-24 15:09:54
+  recordedTime: 2013-08-24 15:09:54
+
+two:
+  id: 
+  storeId: 
+  odenId: 
+  number: 
+  available: 
+  entryTime: 2013-08-24 15:09:54
+  recordedTime: 2013-08-24 15:09:54
