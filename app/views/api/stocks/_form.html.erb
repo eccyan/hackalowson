@@ -1,0 +1,45 @@
+<%= form_for(@stock) do |f| %>
+  <% if @stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
+
+      <ul>
+      <% @stock.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br>
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :storeId %><br>
+    <%= f.text_field :storeId %>
+  </div>
+  <div class="field">
+    <%= f.label :odenId %><br>
+    <%= f.text_field :odenId %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :available %><br>
+    <%= f.text_field :available %>
+  </div>
+  <div class="field">
+    <%= f.label :entryTime %><br>
+    <%= f.datetime_select :entryTime %>
+  </div>
+  <div class="field">
+    <%= f.label :recordedTime %><br>
+    <%= f.datetime_select :recordedTime %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

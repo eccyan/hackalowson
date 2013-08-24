@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @stock.id %>
+</p>
+
+<p>
+  <strong>Storeid:</strong>
+  <%= @stock.storeId %>
+</p>
+
+<p>
+  <strong>Odenid:</strong>
+  <%= @stock.odenId %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @stock.number %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @stock.available %>
+</p>
+
+<p>
+  <strong>Entrytime:</strong>
+  <%= @stock.entryTime %>
+</p>
+
+<p>
+  <strong>Recordedtime:</strong>
+  <%= @stock.recordedTime %>
+</p>
+
+<%= link_to 'Edit', edit_api_stock_path(@stock) %> |
+<%= link_to 'Back', api_store_stocks_path(@stock) %>
