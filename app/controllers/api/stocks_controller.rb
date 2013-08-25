@@ -101,7 +101,7 @@ class Api::StocksController < ApplicationController
     end
 
     simi_type = params[:simi_type]
-    start_datetime = Time.now
+    start_datetime = @stocks.start_time(simi_type).to_datetime
     interval_time = @stocks.interval_time(simi_type)
 
     if interval_time
