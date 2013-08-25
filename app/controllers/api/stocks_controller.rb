@@ -5,12 +5,18 @@ class Api::StocksController < ApplicationController
   # GET /stocks.json
   def index
     if store_id = params[:store_id]
-      @stocks = Stock.where storeId: store_id
+      @stocks = Stock.where(storeId: store_id)
     else
       @stocks = Stock.all
     end
+    @stocks = @stocks.order("entryTime DESC")
+
     oden_id = params[:oden_id]
-    @stocks = @stocks.where odenId: oden_id if oden_id
+    if oden_id 
+      @stocks = @stocks.where odenId: oden_id if oden_id
+    else
+      @stocks = @stocks.group(:odenId)
+    end
   end
 
   # GET /stocks/1
