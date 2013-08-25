@@ -101,13 +101,13 @@ class Api::StocksController < ApplicationController
     end
 
     simi_type = params[:simi_type]
-    start_datetime = @stocks.start_time(simi_type).to_datetime
-    interval_time = @stocks.interval_time(simi_type)
+    start_time = @stocks.simi_start_time(simi_type)
+    end_time = @stocks.simi_end_time(simi_type)
 
-    if interval_time
-      @stocks = @stocks.where(entryTime: start_datetime..(start_datetime-interval_time))
+    if end_time
+      @stocks = @stocks.where(entryTime: end_time.to_datetime..start_time.to_datetime)
     else
-      @stocks = @stocks.where "entryTime < ?", start_datetime
+      @stocks = @stocks.where "entryTime <= ?", start_time.to_datetime
     end
   end
 
