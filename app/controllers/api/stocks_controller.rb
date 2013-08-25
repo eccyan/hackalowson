@@ -95,7 +95,10 @@ class Api::StocksController < ApplicationController
     end
 
     oden_id = params[:oden_id]
-    @stocks = @stocks.where odenId: oden_id if oden_id
+    if oden_id 
+      oden_ids = oden_id.split ","
+      @stocks = @stocks.where odenId: oden_ids if oden_ids
+    end
 
     simi_type = params[:simi_type]
     start_datetime = Time.now
