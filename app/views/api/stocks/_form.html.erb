@@ -1,4 +1,4 @@
-<%= form_for(@stock) do |f| %>
+<%= form_for([:api, @stock]) do |f| %>
   <% if @stock.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
@@ -26,18 +26,6 @@
   <div class="field">
     <%= f.label :number %><br>
     <%= f.text_field :number %>
-  </div>
-  <div class="field">
-    <%= f.label :available %><br>
-    <%= f.text_field :available %>
-  </div>
-  <div class="field">
-    <%= f.label :entryTime %><br>
-    <%= f.datetime_select :entryTime %>
-  </div>
-  <div class="field">
-    <%= f.label :recordedTime %><br>
-    <%= f.datetime_select :recordedTime %>
   </div>
   <div class="actions">
     <%= f.submit %>
