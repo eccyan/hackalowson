@@ -13,7 +13,8 @@ class Api::StocksController < ApplicationController
 
     oden_id = params[:oden_id]
     if oden_id 
-      @stocks = @stocks.where odenId: oden_id if oden_id
+      oden_ids = oden_id.split ","
+      @stocks = @stocks.where odenId: oden_ids if oden_ids
     end
   end
 
