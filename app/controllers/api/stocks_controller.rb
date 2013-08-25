@@ -9,7 +9,7 @@ class Api::StocksController < ApplicationController
     else
       @stocks = Stock.all
     end
-    @stocks = @stocks.order("entryTime DESC")
+    @stocks = @stocks.order("recordedTime")
 
     oden_id = params[:oden_id]
     if oden_id 
